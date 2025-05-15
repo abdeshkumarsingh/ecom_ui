@@ -10,6 +10,6 @@ class MyCartScreen extends StatefulWidget {
 class _MyCartScreenState extends State<MyCartScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(child: Center(child: Text('My Cart Screen')));
   }
 }

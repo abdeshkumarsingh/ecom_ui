@@ -7,4 +7,7 @@ class Images {
   static const String google = 'assets/images/google-logo.png';
   static const String slider1 = 'assets/images/slider-1.png';
   static const String slider2 = 'assets/images/slider-2.png';
+  static const String pulses =  'assets/images/pulses-image.png';
+  static const String rice = 'assets/images/rice-image.png';
+  static const String oil = 'assets/images/oil-image.jpg';
 }

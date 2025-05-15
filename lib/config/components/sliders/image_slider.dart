@@ -6,6 +6,7 @@ import 'package:groceries_app/config/colors/app_colors.dart';
 class ImageSlider extends StatefulWidget {
   final List<String> imageUrls;
   final double height;
+  
 
   const ImageSlider({super.key, required this.imageUrls, this.height = 150});
 
@@ -65,7 +66,7 @@ class _ImageSliderState extends State<ImageSlider> {
             itemBuilder: (context, index) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
+                child: Image.network(
                   widget.imageUrls[index],
                   fit: BoxFit.cover,
                   width: double.infinity,
