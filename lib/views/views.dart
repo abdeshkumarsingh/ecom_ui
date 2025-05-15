@@ -1,0 +1,21 @@
+//export all pages routes here at once
+export 'splash/splash_screen.dart';
+export 'auth/login_screen.dart';
+export 'auth/signup_screen.dart';
+export 'auth/verification_screen.dart';
+export 'auth/number_screen.dart';
+export 'auth/select_location.dart';
+export 'auth/signin_screen.dart';
+export 'cart/checkout_screen.dart';
+export 'cart/favorites_screen.dart';
+export 'cart/my_cart_screen.dart';
+export 'cart/order_complete_screen.dart';
+export 'cart/order_failed_screen.dart';
+export 'home/home_screen.dart';
+export 'product/beverages_screen.dart';
+export 'product/explore_screen.dart';
+export 'product/product_details_screen.dart';
+export 'product/search_screen.dart';
+export 'profile/profile_screen.dart';
+export 'splash/onboarding_screen.dart';
+export 'not_found/not_found.dart';
