@@ -4,7 +4,7 @@ import 'package:groceries_app/config/colors/app_colors.dart';
 class CardListBuilder extends StatelessWidget {
   final List<dynamic> items;
   final Axis scrollDirection;
-  final GestureTapCallback onTap;
+  final Function(int index) onTap;
 
   const CardListBuilder({
     super.key,
@@ -38,7 +38,7 @@ class CardListBuilder extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
-                onTap: onTap,
+                onTap: () => onTap(index),
                 child: Image.network(
                   items[index]['image'],
                   height: 80,

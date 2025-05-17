@@ -43,12 +43,7 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
               SizedBox(height: 20),
               SearchBarWithIcon(hintText: 'Search on store'),
               const SizedBox(height: 20),
-              ImageSlider(
-                imageUrls: [
-                  'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png',
-                  'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png',
-                ],
-              ),
+              ImageSlider(imageUrls: [Images.slider1, Images.slider2]),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,87 +71,100 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                 child: CardListBuilder(
                   items: ProductList.exclusive,
                   scrollDirection: Axis.horizontal,
-                  onTap: () {
+                  onTap: (index) {
                     Navigator.pushNamed(
                       context,
                       RoutesNames.productDetails,
-                      arguments: ProductModel.fromJson(ProductList.exclusive[0]
+                      arguments: ProductModel.fromJson(
+                        ProductList.exclusive[index],
                       ),
                     );
                   },
                 ),
               ),
-              // const SizedBox(height: 20),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Text(
-              //       'Best Selling',
-              //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              //     ),
-              //     TextButton(
-              //       onPressed: () {},
-              //       child: Text(
-              //         'See all',
-              //         style: TextStyle(
-              //           color: AppColors.primaryColor,
-              //           fontSize: 17,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(height: 20),
-              // SizedBox(
-              //   height: 200,
-              //   child: CardListBuilder(
-              //     items: ProductList.selling,
-              //     scrollDirection: Axis.horizontal,
-              //     onTap: () {
-              //       Navigator.pushNamed(context, RoutesNames.productDetails);
-              //     },
-              //   ),
-              // ),
-              // const SizedBox(height: 20),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Text(
-              //       'Groceries',
-              //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              //     ),
-              //     TextButton(
-              //       onPressed: () {},
-              //       child: Text(
-              //         'See all',
-              //         style: TextStyle(
-              //           color: AppColors.primaryColor,
-              //           fontSize: 17,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(height: 20),
-              // SizedBox(
-              //   height: 100,
-              //   child: CategoryNameWithImageCard(
-              //     groceries: GroceriesList.groceries,
-              //   ),
-              // ),
-              // const SizedBox(height: 20),
-              // SizedBox(
-              //   height: 200,
-              //   child: CardListBuilder(
-              //     items: ProductList.selling,
-              //     scrollDirection: Axis.horizontal,
-              //     onTap: () {
-              //       Navigator.pushNamed(context, RoutesNames.productDetails);
-              //     },
-              //   ),
-              // ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Best Selling',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See all',
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 200,
+                child: CardListBuilder(
+                  items: ProductList.exclusive,
+                  scrollDirection: Axis.horizontal,
+                  onTap: (index) {
+                    Navigator.pushNamed(
+                      context,
+                      RoutesNames.productDetails,
+                      arguments: ProductModel.fromJson(
+                        ProductList.exclusive[index],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Groceries',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See all',
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 100,
+                child: CategoryNameWithImageCard(
+                  groceries: GroceriesList.groceries,
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 200,
+                child: CardListBuilder(
+                  items: ProductList.exclusive,
+                  scrollDirection: Axis.horizontal,
+                  onTap: (index) {
+                    Navigator.pushNamed(
+                      context,
+                      RoutesNames.productDetails,
+                      arguments: ProductModel.fromJson(
+                        ProductList.exclusive[index],
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),

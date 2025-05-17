@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:groceries_app/config/colors/app_colors.dart';
+import 'package:groceries_app/config/components/buttons/wide_button.dart';
 import 'package:groceries_app/config/components/sliders/image_slider.dart';
+import 'package:groceries_app/config/components/sliders/product_image_slider.dart';
 import 'package:groceries_app/config/images/images.dart';
 import 'package:groceries_app/models/product/product_model.dart';
 
@@ -12,6 +15,8 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  bool _isExpanded = false;
+  int _productAmount = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +41,189 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ImageSlider(
+              ProductImageSlider(
                 imageUrls: widget.productModel.images,
-                height: 400,
+                height: 300,
               ),
-              SizedBox(height: 20),
-              Text('More details about the product will be shown here.'),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          widget.productModel.title,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.favorite_border_outlined, size: 22),
+                        ),
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        textAlign: TextAlign.start,
+                        widget.productModel.description,
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            if (_productAmount > 1) {
+                              setState(() {
+                                _productAmount--;
+                              });
+                            }
+                          },
+                          icon: Icon(Icons.remove, size: 22),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(width: 1.5),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 5,
+                            ),
+                            child: Text(
+                              '$_productAmount',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _productAmount++;
+                            });
+                          },
+                          icon: Icon(
+                            Icons.add,
+                            size: 22,
+                            color: AppColors.primaryColor,
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          '\$${widget.productModel.price}',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Column(
+                      children: [
+                        // Product Detail (Expandable)
+                        ExpansionTile(
+                          title: Text(
+                            "Product Detail",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Icon(
+                            _isExpanded
+                                ? Icons.keyboard_arrow_up
+                                : Icons.keyboard_arrow_down,
+                          ),
+                          initiallyExpanded: _isExpanded,
+                          onExpansionChanged: (expanded) {
+                            setState(() {
+                              _isExpanded = expanded;
+                            });
+                          },
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                              ),
+                              child: Text(
+                                widget.productModel.details,
+                                style: TextStyle(color: Colors.black54),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
+
+                        // Nutritions (Row with trailing chip and arrow)
+                        ListTile(
+                          title: Text(
+                            "Nutritions",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade300,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Text(
+                                  "100gr",
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Icon(Icons.chevron_right),
+                            ],
+                          ),
+                          onTap: () {
+                            // Navigate or do something
+                          },
+                        ),
+
+                        // Review (Row with star rating)
+                        ListTile(
+                          title: Text(
+                            "Review",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                children: List.generate(5, (index) {
+                                  return Icon(
+                                    Icons.star,
+                                    color: Colors.orange,
+                                    size: 18,
+                                  );
+                                }),
+                              ),
+                              const SizedBox(width: 10),
+                              Icon(Icons.chevron_right),
+                            ],
+                          ),
+                          onTap: () {
+                            // Navigate or show review
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              WideButton(name: 'Add To Basket', onPressed: () {}),
             ],
           ),
         ),

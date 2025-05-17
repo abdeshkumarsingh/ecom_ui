@@ -3,18 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/colors/app_colors.dart';
 
-class ImageSlider extends StatefulWidget {
+class ProductImageSlider extends StatefulWidget {
   final List<String> imageUrls;
   final double height;
-  
-
-  const ImageSlider({super.key, required this.imageUrls, this.height = 150});
-
+  const ProductImageSlider({
+    super.key,
+    required this.imageUrls,
+    this.height = 150,
+  });
   @override
-  State<ImageSlider> createState() => _ImageSliderState();
+  State<ProductImageSlider> createState() => _ProductImageSliderState();
 }
 
-class _ImageSliderState extends State<ImageSlider> {
+class _ProductImageSliderState extends State<ProductImageSlider> {
   int _currentIndex = 0;
   final PageController _pageController = PageController();
   Timer? _timer;
@@ -51,11 +52,11 @@ class _ImageSliderState extends State<ImageSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: widget.height,
-          child: PageView.builder(
+    return SizedBox(
+      height: widget.height,
+      child: Stack(
+        children: [
+          PageView.builder(
             itemCount: widget.imageUrls.length,
             controller: _pageController,
             onPageChanged: (index) {
@@ -66,7 +67,7 @@ class _ImageSliderState extends State<ImageSlider> {
             itemBuilder: (context, index) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
+                child: Image.network(
                   widget.imageUrls[index],
                   fit: BoxFit.cover,
                   width: double.infinity,
@@ -74,28 +75,32 @@ class _ImageSliderState extends State<ImageSlider> {
               );
             },
           ),
-        ),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            widget.imageUrls.length,
-            (index) => AnimatedContainer(
-              duration: Duration(milliseconds: 300),
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              height: 6,
-              width: _currentIndex == index ? 20 : 6,
-              decoration: BoxDecoration(
-                color:
-                    _currentIndex == index
-                        ? AppColors.primaryColor
-                        : Colors.grey,
-                borderRadius: BorderRadius.circular(5),
+          Positioned(
+            bottom: 15,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                widget.imageUrls.length,
+                (index) => AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  margin: const EdgeInsets.symmetric(horizontal: 5),
+                  height: 6,
+                  width: _currentIndex == index ? 20 : 6,
+                  decoration: BoxDecoration(
+                    color:
+                        _currentIndex == index
+                            ? AppColors.primaryColor
+                            : Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
