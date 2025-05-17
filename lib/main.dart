@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.getRoute,
-      initialRoute: RoutesNames.onboarding,
+      initialRoute: RoutesNames.home,
     );
   }
 }

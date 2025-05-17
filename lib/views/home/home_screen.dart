@@ -7,6 +7,7 @@ import 'package:groceries_app/config/components/search_bar/search_bar_with_icon.
 import 'package:groceries_app/config/components/sliders/image_slider.dart';
 import 'package:groceries_app/config/images/images.dart';
 import 'package:groceries_app/config/routes/routes_names.dart';
+import 'package:groceries_app/models/product/product_model.dart';
 import 'package:groceries_app/utils/groceries/groceries_list.dart';
 import 'package:groceries_app/utils/product_list/product_list.dart';
 import 'package:groceries_app/views/cart/my_cart_screen.dart';

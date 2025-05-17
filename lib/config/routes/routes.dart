@@ -24,9 +24,10 @@ class Routes {
       case RoutesNames.favorites:
         return MaterialPageRoute(builder: (_) => const FavoritesScreen());
       case RoutesNames.myCart:
-        return MaterialPageRoute(builder: (_) => const MyCartScreen());
+        return MaterialPageRoute(builder: (_) =>  MyCartScreen());
       case RoutesNames.beverages:
-        return MaterialPageRoute(builder: (_) => const BeveragesScreen());
+        final List<ProductModel> products = route.arguments as List<ProductModel>;
+        return MaterialPageRoute(builder: (_) => BeveragesScreen(products: products,));
       case RoutesNames.explore:
         return MaterialPageRoute(builder: (_) => const ExploreScreen());
       case RoutesNames.search:
