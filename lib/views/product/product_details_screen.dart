@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/colors/app_colors.dart';
+import 'package:groceries_app/config/components/buttons/product_amount_button.dart';
 import 'package:groceries_app/config/components/buttons/wide_button.dart';
 import 'package:groceries_app/config/components/sliders/image_slider.dart';
 import 'package:groceries_app/config/components/sliders/product_image_slider.dart';
@@ -75,55 +76,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            if (_productAmount > 1) {
-                              setState(() {
-                                _productAmount--;
-                              });
-                            }
-                          },
-                          icon: Icon(Icons.remove, size: 22),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(width: 1.5),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 5,
-                            ),
-                            child: Text(
-                              '$_productAmount',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _productAmount++;
-                            });
-                          },
-                          icon: Icon(
-                            Icons.add,
-                            size: 22,
-                            color: AppColors.primaryColor,
-                          ),
-                        ),
-                        const Spacer(),
-                        Text(
-                          '\$${widget.productModel.price}',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                    ProductAmountButton(
+                      price: widget.productModel.price,
                     ),
                     const SizedBox(height: 20),
                     Column(

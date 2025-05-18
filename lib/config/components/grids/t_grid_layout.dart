@@ -5,7 +5,15 @@ class TGridLayout extends StatelessWidget {
   final int itemCount;
   final double crossAxisSpacing;
   final double? mainAxisExtent;
-  const TGridLayout({super.key, required this.itemBuilder, required this.itemCount, this.crossAxisSpacing = 10, this.mainAxisExtent = 288});
+  final int? crossAxisCount;
+  const TGridLayout({
+    super.key,
+    required this.itemBuilder,
+    required this.itemCount,
+    this.crossAxisSpacing = 10,
+    this.mainAxisExtent = 288,
+    this.crossAxisCount = 2
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +22,13 @@ class TGridLayout extends StatelessWidget {
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisExtent: mainAxisExtent, crossAxisSpacing: 16, mainAxisSpacing: 16), 
-      itemBuilder: itemBuilder, );
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount!,
+        mainAxisExtent: mainAxisExtent,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
+      ),
+      itemBuilder: itemBuilder,
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/components/cards/product_card.dart';
+import 'package:groceries_app/config/components/filter/filter_bottom_sheet.dart';
 import 'package:groceries_app/config/components/grids/t_grid_layout.dart';
 import 'package:groceries_app/models/product/product_model.dart';
 
@@ -24,9 +25,16 @@ class _BeveragesScreenState extends State<BeveragesScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.filter_alt),
             onPressed: () {
               // Add share functionality here
+              showModalBottomSheet(
+                context: context,
+                isDismissible: true,
+                backgroundColor: Colors.transparent,
+                isScrollControlled: true,
+                builder: (context) => FilterBottomSheet(),
+              );
             },
           ),
         ],
