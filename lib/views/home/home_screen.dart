@@ -23,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  
   final List<Widget> _widgets = [
     const ShoppingScreen(),
     const ExploreScreen(),

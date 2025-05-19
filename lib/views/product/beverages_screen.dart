@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/components/cards/product_card.dart';
-import 'package:groceries_app/config/components/filter/filter_bottom_sheet.dart';
+import 'package:groceries_app/config/components/bottom_sheet/filter_bottom_sheet.dart';
 import 'package:groceries_app/config/components/grids/t_grid_layout.dart';
 import 'package:groceries_app/models/product/product_model.dart';
 
