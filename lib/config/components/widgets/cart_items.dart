@@ -27,7 +27,7 @@ class CartItems extends StatelessWidget {
         ListTile(
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Image.network(image, width: 70),
+            child: Image.network(image, width: 70, errorBuilder: (context, error, stackTrace) => Image.asset(Images.defaultImg, width: 70,),),
           ),
           title: GestureDetector(
             onTap: ontap,

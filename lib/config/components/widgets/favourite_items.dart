@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/components/buttons/product_amount_button.dart';
+import 'package:groceries_app/config/images/images.dart';
 
 class FavouriteItems extends StatelessWidget {
   final String title;
@@ -28,7 +29,13 @@ class FavouriteItems extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Image.network(image, width: 70),
+              child: Image.network(
+                image,
+                width: 70,
+                errorBuilder:
+                    (context, error, stackTrace) =>
+                        Image.asset(Images.defaultImg, width: 70),
+              ),
             ),
             title: Row(
               children: [

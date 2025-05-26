@@ -13,4 +13,5 @@ class Images {
   static const String delivery = 'assets/images/delivery-unscreen.gif';
   static const String failed =
       'https://cdn-icons-png.flaticon.com/512/5346/5346571.png';
+  static const String defaultImg = 'assets/images/default_image.png';    
 }

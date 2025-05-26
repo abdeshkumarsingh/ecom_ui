@@ -31,7 +31,7 @@ class CategoryNameWithImageCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image.asset(grocery['image'], height: 60, width: 60),
+              Image.asset(grocery['image'], height: 60, width: 60, ),
               SizedBox(width: 10),
               Text(
                 grocery['title'],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceries_app/config/images/images.dart';
 
 class ExploreProductCard extends StatelessWidget {
   final String image;
@@ -38,7 +39,7 @@ class ExploreProductCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image.network(image, height: imageHeight),
+              Image.network(image, height: imageHeight, errorBuilder: (context, error, stackTrace) => Image.asset(Images.defaultImg, height: imageHeight,),),
               Text(
                 title,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

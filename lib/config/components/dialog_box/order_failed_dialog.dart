@@ -16,7 +16,7 @@ class OrderFailedDialog extends StatelessWidget {
             mainAxisSize: MainAxisSize.min, // make it as small as needed
             children: [
               const SizedBox(height: 40),
-              Image.network(Images.failed, width: 200),
+              Image.network(Images.failed, width: 200, errorBuilder: (context, error, stackTrace) => Image.asset(Images.defaultImg, width: 200,),),
               const SizedBox(height: 20),
               const Text(
                 'Oops! Order Failed',

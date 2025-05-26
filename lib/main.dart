@@ -15,12 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.getRoute,
-      initialRoute: RoutesNames.home,
+      initialRoute: RoutesNames.onboarding,
     );
   }
 }

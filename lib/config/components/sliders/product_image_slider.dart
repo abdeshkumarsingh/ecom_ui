@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/colors/app_colors.dart';
+import 'package:groceries_app/config/images/images.dart';
 
 class ProductImageSlider extends StatefulWidget {
   final List<String> imageUrls;
@@ -71,6 +72,12 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
                   widget.imageUrls[index],
                   fit: BoxFit.cover,
                   width: double.infinity,
+                  errorBuilder:
+                      (context, error, stackTrace) => Image.asset(
+                        Images.defaultImg,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
                 ),
               );
             },

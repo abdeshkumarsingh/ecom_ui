@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceries_app/config/colors/app_colors.dart';
+import 'package:groceries_app/config/images/images.dart';
 
 class ProductCard extends StatelessWidget {
   final String title;
@@ -41,7 +42,14 @@ class ProductCard extends StatelessWidget {
         children: [
           InkWell(
             onTap: () => onTap(index),
-            child: Image.network(image, height: 80, width: 80),
+            child: Image.network(
+              image,
+              height: 80,
+              width: 80,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(Images.defaultImg, height: 80, width: 80);
+              },
+            ),
           ),
           SizedBox(height: 10),
           Text(
