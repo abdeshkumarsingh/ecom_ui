@@ -28,33 +28,23 @@ A beautifully crafted **E-commerce Flutter App UI** by **Abdesh Singh**, designe
 
 | Splash    | Onboarding |
 |-----------|-----------|
-| ![Home](screenshots/splash.png) | ![Cart](screenshots/onboarding.png) |
+| ![splash](screenshots/splash.png) | ![onboarding](screenshots/onboarding.png) |
 | Signin page | Login page |
-|-----------|-----------|
-| ![Home](screenshots/welcome.png) | ![Cart](screenshots/login.png) |
+| ![welcome](screenshots/welcome.png) | ![login](screenshots/login.png) |
 | Signup page | Number page |
-|-----------|-----------|
-| ![Home](screenshots/signup.png) | ![Cart](screenshots/number.png) |
+| ![signup](screenshots/signup.png) | ![number](screenshots/number.png) |
 | Number verification Page | Location Page |
-|-----------|-----------|
-| ![Home](screenshots/number_verification.png) | ![Cart](screenshots/location.png) |
-| Home Page | Cart Page |
-|-----------|-----------|
-| ![Home](screenshots/home.png) | ![Cart](screenshots/cart.png) |
-| Home Page | Cart Page |
-|-----------|-----------|
-| ![Home](screenshots/home.png) | ![Cart](screenshots/cart.png) |
-| Home Page | Cart Page |
-|-----------|-----------|
-| ![Home](screenshots/home.png) | ![Cart](screenshots/cart.png) |
-| Home Page | Cart Page |
-|-----------|-----------|
-| ![Home](screenshots/home.png) | ![Cart](screenshots/cart.png) |
-| Home Page | Cart Page |
-|-----------|-----------|
-| ![Home](screenshots/home.png) | ![Cart](screenshots/cart.png) |
-
-> 📝 Add your actual screenshots to the `screenshots/` folder.
+| ![number_verification](screenshots/number_verification.png) | ![location](screenshots/location.png) |
+| Home Page | Home 2 Page |
+| ![Home](screenshots/home.png) | ![home_2](screenshots/home_2.png) |
+| Explore Page | Product Page |
+| ![explore](screenshots/explore.png) | ![product_detail](screenshots/product_detail.png) |
+| Cart Page | Category Page |
+| ![cart](screenshots/cart.png) | ![category](screenshots/category.png) |
+| Filter Page | Favourite Page |
+| ![filter](screenshots/filter.png) | ![favourite](screenshots/favourite.png) 
+| Profile Page |
+| ![Profile](screenshots/profile.png) |
 
 ---
 
